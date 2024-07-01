@@ -6,7 +6,7 @@
 
         <title>Laravel</title>
 
-        @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
