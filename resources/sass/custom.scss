@@ -1,0 +1,347 @@
+// import _variables.scss
+@import "variables";
+
+html {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: $text;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    box-sizing: border-box !important;
+}
+
+.main-bg {
+    background-image: url('../images/main-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: $text;
+}
+
+.button {
+    background-color: $primary;
+    color: $white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0;
+    border: 2px solid #9E9E9E;
+    border-radius: 0;
+    background-color: #fff !important;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid $primary;
+
+    &::-webkit-input-placeholder {
+        color: $gray;
+    }
+}
+
+input:-internal-autofill-selected {
+    background-color: #fff !important;
+}
+
+
+
+label {
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    letter-spacing: 2px;
+}
+
+.button:hover {
+    background-color: darken($primary, 10%);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.branding {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo {
+      width: 50%;
+      height: auto;
+    }
+}
+
+.welcome {
+    .branding-container {
+        margin-top: 10%;
+    }
+
+    .container {
+        text-align: center;
+        width: 70%;
+        margin: 53% auto 0 auto;
+
+        @media (max-width: 375px) {
+            margin: 35% auto 0 auto;
+        }
+
+        h1 {
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-top: 40px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.login {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+
+    padding-top: 10%;
+
+    .branding-container {
+        box-sizing: border-box;
+    }
+
+    .content {
+        height: 100%;
+        padding: 20px;
+        padding-top: 40px;
+        text-align: start;
+        box-sizing: border-box;
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px 40px;
+        }
+
+        .bottom-text {
+           width: 60%;
+           text-align: center;
+           margin: 80% auto 0 auto;
+
+            @media (max-width: 375px) {
+                margin: 30% auto 0 auto;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            a {
+                font-weight: 600;
+                text-decoration: underline;
+                color: $text;
+            }
+        }
+    }
+}
+
+.devider {
+   width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+
+    span {
+        position: relative;
+        width: 100%;
+        display: block;
+        margin-top: 10px;
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background-color: $text;
+        }
+
+        &:before {
+            right: 0;
+        }
+
+        &:after {
+            left: 0;
+        }
+    }
+}
+
+.dashboard {
+    width: 100%;
+    height: 100vh;
+    padding: 40px 20px;
+
+    .content {
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .tile {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+
+        @media (max-width: 375px) {
+            height: 82px;
+        }
+
+        &.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .image {
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+
+        .station {
+            border-radius: 12px;
+            background-color: #ffffff7a ;
+            padding: 20px 30px;
+            width: 68%;
+            height: 100%;
+            display: flex;
+            justify-content: start;
+            gap: 12px;
+            align-items: center;
+
+            .station-number {
+                font-size: 13px;
+                font-weight: 700;
+                color: #3C727A;
+            }
+
+            .station-name {
+                font-size: 13px;
+                letter-spacing: 1px;
+                color: #3C727A;
+                font-weight: 400;
+            }
+        }
+    }
+
+
+}
+
+.station-page {
+    width: 100%;
+    height: 100vh;
+    padding-top: 40px;
+
+    .content {
+        padding: 20px;
+        text-align: center;
+        .station-number {
+            font-size: 23px;
+            font-weight: 400;
+            color: #3C727A;
+            letter-spacing: 1px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .station-name {
+            font-size: 24px;
+            letter-spacing: 1px;
+            color: #3C727A;
+            font-weight: 600;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tag-line {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #3C727A;
+            letter-spacing: 1px;
+        }
+    }
+
+    .station-img {
+        width: 100%;
+
+        img {
+            width: 100%;
+            @media (max-width: 375px) {
+                height: 247px;
+                object-fit: contain;
+            }
+        }
+    }
+    .scanner-button {
+        margin-top: 20px;
+        text-align: center;
+        .scan-btn {
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        p {
+            font-size: 14px;
+            color: $white;
+            letter-spacing: 1px;
+            font-weight: 400;
+            padding: 0;
+            margin:0;
+        }
+    }
+
+}
