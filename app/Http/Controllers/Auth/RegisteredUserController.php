@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\countries;
 use App\Models\Regime;
+use Carbon\Carbon;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -62,6 +63,9 @@ $country = Countries::where('phone_code', $phonePrefix)->first();
             'country'=> $country->name,
             'password' => Hash::make('password'),
         ]);
+
+        Auth::user()->update(['last_login_at' => Carbon::now()]);
+
 
         event(new Registered($user));
 
