@@ -18,11 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/station/{id}', 'App\Http\Controllers\station@index')->name('station.show');
+Route::get('/station/{station}', 'App\Http\Controllers\StationController@index')->name('station.show');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', 'App\Http\Controllers\StationController@welcome')->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
