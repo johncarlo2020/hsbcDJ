@@ -39,7 +39,7 @@
 
         </div>
         <div class="scanner-button">
-          <button id="scan-btn" class="scan-btn">
+          <button id="{{ $user == false ? 'scan-btn' : 'scan-btns' }}" class="scan-btn">
               <img src="{{ asset('images/camera.png') }}">
           </button>
           <p>Scan the QR Code at the station to proceed</p>

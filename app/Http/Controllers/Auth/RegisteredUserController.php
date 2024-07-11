@@ -61,11 +61,9 @@ $country = Countries::where('phone_code', $phonePrefix)->first();
             'number' => $request->number,
             'email' => $request->email,
             'country'=> $country->name,
+            'last_login_at' => Carbon::now(),
             'password' => Hash::make('password'),
         ]);
-
-        Auth::user()->update(['last_login_at' => Carbon::now()]);
-
 
         event(new Registered($user));
 
