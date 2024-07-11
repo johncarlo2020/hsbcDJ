@@ -16,6 +16,7 @@ class StationController extends Controller
     {
         $user = StationUser::where('user_id',auth()->id())->where('station_id',$station->id)->exists();
 
+
         return view('station',compact('station','user'));
     }
 

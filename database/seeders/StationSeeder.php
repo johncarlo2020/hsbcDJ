@@ -69,7 +69,7 @@ interactive creative visual.'
 
         Station::create([
             'name' => 'SKIN SCIENCE CLINIC & PERSONALIZED ROBOSKIN',
-            'description' => 'Get a personal skin consultation from dermatologists and skin experts, with the latest skin analyzer technology. And experience revolutionary Personalised RoboSkin™️ to get tailor-made skin solutions for your specific skin needs.'
+            'description' => 'Get a personal skin consultation from dermatologists and skin experts, with the latest skin analyzer technology.'
 
         ]);
 
