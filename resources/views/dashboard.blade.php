@@ -10,7 +10,9 @@
             <div class="tile">
                 <div class="image">
                   <img src="{{ asset('images/station' . $station->id . '.png') }}" alt="">
-
+                    <div class="check-mark">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
                 </div>
                 <div class="station">
                     <p class="station-number">{{$station->id}}</p>
@@ -24,7 +26,7 @@
             <div class="tile reverse">
                 <div class="image">
                   <img src="{{ asset('images/station' . $station->id . '.png') }}" alt="">
-
+                    <img src="" alt="">
                 </div>
                 <div class="station">
                 <p class="station-number">{{$station->id}}</p>
@@ -35,7 +37,7 @@
         </a>
         @endif
         @endforeach
-      
+
     </div>
   </div>
 </x-app-layout>

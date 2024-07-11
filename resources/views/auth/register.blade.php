@@ -1,75 +1,120 @@
 <x-guest-layout>
-<h1>Register</h1>
+    <div class="register">
+        <h1>Register</h1>
 
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-        <!-- Name -->
-        <div>
-            <x-text-input id="fname" class="block mt-1 w-full" type="text" name="fname" :value="old('name')" required autofocus placeholder="First Name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <!-- Name -->
+            <div>
+                <x-text-input id="fname" class="block w-full mt-1" type="text" name="fname" :value="old('name')"
+                    required autofocus placeholder="First Name" />
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
+
+            <div>
+                <x-text-input id="lname" class="block w-full mt-1" type="text" name="lname" :value="old('name')"
+                    required autofocus placeholder="Last Name" />
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
+
+            <div>
+                <x-select-input class="block w-full mt-1" id="age" name="age" required>
+                    <option value="" disabled selected>Age Group</option>
+                    <option value="13-19">13-19</option>
+                    <option value="20-29">20-29</option>
+                    <option value="30-39">30-39</option>
+                    <option value="40-49">40-49</option>
+                    <option value="50-59">50-59</option>
+                    <option value="60-69">60-69</option>
+                    <option value="others">others</option>
+
+                </x-select-input>
+                <x-input-error :messages="$errors->get('age')" class="mt-2" />
+            </div>
+
+
+
+            <!-- Email Address -->
+            <div class="">
+                <x-text-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')"
+                    required placeholder="Email Address" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
+
+            <div class="">
+                <x-text-input id="number" class="block w-full mt-1" type="text" name="number" :value="old('number')"
+                    required placeholder="+60 12-3739 1590" />
+                <x-input-error :messages="$errors->get('number')" class="mt-2" />
+            </div>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            Skin Regime
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            @foreach($options as $option)
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="regime_{{ $option->id }}" name="regimes"
+                                    value="{{ $option->id }}">
+                                <label for="regime_{{ $option->id }}"></label>
+                                <p>{{ $option->name }}</p>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="checkbox-container concent-container">
+                <input type="checkbox" id="consent" name="consent" value="1" required>
+                <label for="consent">
+                </label>
+                <p> I acknowledge and consent to Paragoncorp and/or its agents or affiliates updating me on the latest
+                    launches, promotional materials, offers, and gifts via WhatsApp and/or email. I understand that my
+                    personal data will be collected and processed in accordance with the event's privacy policy.</p>
+            </div>
+
+
+
+            <div class="flex items-center justify-end mt-4">
+                <x-primary-button class="button">
+                    {{ __('SUBMIT') }}
+                </x-primary-button>
+            </div>
+        </form>
+
+        <div class="bottom-text">
+            <p>Already Register Please log in<a class="" href="{{ route('login') }}">
+                    {{ __('here') }}
+                </a></p>
         </div>
-
-        <div>
-            <x-text-input id="lname" class="block mt-1 w-full" type="text" name="lname" :value="old('name')" required autofocus placeholder="Last Name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
-
-        <div>
-            <x-select-input class="block mt-1 w-full" id="age" name="age" required>
-                <option value="" disabled selected>Age Group</option>
-                <option value="13-19">13-19</option>
-                <option value="20-29">20-29</option>
-                <option value="30-39">30-39</option>
-                <option value="40-49">40-49</option>
-                <option value="50-59">50-59</option>
-                <option value="60-69">60-69</option>
-                <option value="others">others</option>
-
-            </x-select-input>
-            <x-input-error :messages="$errors->get('age')" class="mt-2" />
-        </div>
-        
-
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required placeholder="Email Address" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <div class="mt-4">
-            <x-text-input id="number" class="block mt-1 w-full" type="text" name="number" :value="old('number')" required placeholder="+60 12-3739 1590" />
-            <x-input-error :messages="$errors->get('number')" class="mt-2" />
-        </div>
-
-        <div class="form-group">
-    @foreach($options as $option)
-        <div class="checkbox-container">
-            <input type="checkbox" id="regime_{{ $option->id }}" name="regimes[]" value="{{ $option->id }}">
-            <label for="regime_{{ $option->id }}">{{ $option->name }}</label>
-        </div>
-    @endforeach
-</div>
-
-
-    <div class="checkbox-container">
-        <input type="checkbox" id="consent" name="consent" value="1" required>
-        <label for="consent">
-            I acknowledge and consent to Paragoncorp and/or its agents or affiliates updating me on the latest launches, promotional materials, offers, and gifts via WhatsApp and/or email. I understand that my personal data will be collected and processed in accordance with the event's privacy policy.
-        </label>
     </div>
-
-   
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
 </x-guest-layout>
+
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll("input[type=checkbox][name=regimes]");
+    const lastCheckboxContainer = document.querySelector('input[type=checkbox][name=regimes][value="7"]').closest('.checkbox-container');
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            const enabledSettings = Array.from(checkboxes).filter(i => i.checked).map(i => i.value);
+
+            // Toggle visibility of the last checkbox
+            lastCheckboxContainer.style.display = enabledSettings.includes('7') || enabledSettings.length === 0 ? 'flex' : 'none';
+
+            // Disable or enable other checkboxes
+            checkboxes.forEach(function(cb) {
+                cb.disabled = enabledSettings.includes('7') && cb.value !== '7';
+            });
+        });
+    });
+});
+</script>
