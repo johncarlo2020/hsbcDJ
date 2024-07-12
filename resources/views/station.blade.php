@@ -38,12 +38,14 @@
           <img src="{{ asset('images/station' . $station->id . 'main.png') }}" alt="">
 
         </div>
+        @if( $user == false )
         <div class="scanner-button">
-          <button id="{{ $user == false ? 'scan-btn' : 'scan-btns' }}" class="scan-btn">
+          <button id="scan-btn" class="scan-btn">
               <img src="{{ asset('images/camera.png') }}">
           </button>
           <p>Scan the QR Code at the station to proceed</p>
         </div>
+        @endif
       </div>
       <div id="scannerContainer" class="scanner-container d-none">
                 <!-- <button id="close" class="camera-btn mx-auto mt-4">x</button> -->
