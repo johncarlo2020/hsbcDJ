@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Countries;
 use App\Models\Regime;
+use App\Models\RegimeUser;
+
 use Carbon\Carbon;
 
 use App\Providers\RouteServiceProvider;
@@ -65,6 +67,19 @@ $country = Countries::where('phone_code', $phonePrefix)->first();
             'password' => Hash::make('password'),
         ]);
 
+        $regimes = $request->regimes; // Assuming $request->regimes is an array of regime IDs
+
+        $regimeUsers = [];
+        
+        foreach ($regimes as $regimeId) {
+            $regimeUsers[] = [
+                'user_id' => $user->id,
+                'regime_id' => $regimeId
+            ];
+        }
+        
+        // Use the insert method to insert multiple records in one query
+        RegimeUser::insert($regimeUsers);
         event(new Registered($user));
 
         Auth::login($user);

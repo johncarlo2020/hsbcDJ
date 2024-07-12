@@ -60,7 +60,7 @@
                         <div class="accordion-body">
                             @foreach($options as $option)
                             <div class="checkbox-container">
-                                <input type="checkbox" id="regime_{{ $option->id }}" name="regimes"
+                                <input type="checkbox" id="regime_{{ $option->id }}" name="regimes[]"
                                     value="{{ $option->id }}">
                                 <label for="regime_{{ $option->id }}"></label>
                                 <p>{{ $option->name }}</p>
@@ -100,8 +100,8 @@
 
 <script>
  document.addEventListener('DOMContentLoaded', function () {
-    const checkboxes = document.querySelectorAll("input[type=checkbox][name=regimes]");
-    const lastCheckboxContainer = document.querySelector('input[type=checkbox][name=regimes][value="7"]').closest('.checkbox-container');
+    const checkboxes = document.querySelectorAll("input[type=checkbox][name='regimes[]'");
+    const lastCheckboxContainer = document.querySelector('input[type=checkbox][name="regimes[]"][value="7"]').closest('.checkbox-container');
 
     checkboxes.forEach(function(checkbox) {
         checkbox.addEventListener('change', function() {

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('regime_id');
-            $table->string('time_spent')->nullable();
 
             $table->index(["user_id"], 'regime-users');
             $table->index(["regime_id"], 'regime-stations');
