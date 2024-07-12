@@ -88,9 +88,9 @@ div {
         position: absolute;
         width: 30px;
         height: 30px;
-      }
+    }
 
-      label {
+    label {
         display: inline-block;
         width: 30px;
         height: 30px;
@@ -99,10 +99,10 @@ div {
         border-radius: 0px;
         cursor: pointer;
         position: relative;
-      }
+    }
 
-      input[type="checkbox"]:checked + label::after {
-        content: '';
+    input[type="checkbox"]:checked + label::after {
+        content: "";
         position: absolute;
         left: 10px;
         top: 2px;
@@ -111,16 +111,16 @@ div {
         border: solid #494949;
         border-width: 0 3px 3px 0;
         transform: rotate(45deg);
-      }
+    }
 
-      p {
+    p {
         padding: 0;
         margin: 0;
-      }
+    }
 
-        input[type="checkbox"]:disabled + label {
-            background-color: #dbdada;
-        }
+    input[type="checkbox"]:disabled + label {
+        background-color: #dbdada;
+    }
 }
 
 .checkbox-container input[type="checkbox"] {
@@ -180,12 +180,10 @@ label {
 .button:hover {
     background-color: darken($primary, 10%);
 }
-
-a {
-    text-decoration: none;
-}
-
-a:visited {
+a:link,
+a:visited,
+a:hover,
+a:active {
     text-decoration: none;
 }
 
@@ -374,7 +372,7 @@ a:visited {
                 font-weight: 400;
 
                 @media (max-width: 375px) {
-                   font-size: 9px;
+                    font-size: 9px;
                 }
             }
         }
@@ -461,7 +459,6 @@ a:visited {
         label {
             width: 201px;
         }
-
     }
     .accordion-button {
         border-radius: 0px !important;
@@ -478,7 +475,7 @@ a:visited {
     }
 
     .accordion {
-       margin: 5px 0;
+        margin: 5px 0;
     }
 
     .accordion-body {
@@ -491,14 +488,12 @@ a:visited {
     .accordion-item {
         background-color: transparent;
     }
-
-
 }
 
 .check-mark {
     width: 28px;
     height: 28px;
-    color: #40A355;
+    color: #40a355;
     background-color: #fff;
     border-radius: 50%;
     display: flex;

@@ -14,7 +14,7 @@
                             </p>
                         </div>
                         <div class="button">
-                            <a href="{{ route('dashboard') }}" class="btn-okay btn">
+                            <a href="{{ route('dashboard') }}" class="btn-okay btn text-light">
                                 Close
                             </a>
                         </div>
