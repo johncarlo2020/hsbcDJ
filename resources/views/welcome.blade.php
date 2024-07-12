@@ -30,7 +30,7 @@
         <h1>
             WELCOME TO SKINVERSE
         </h1>
-        <a class="button" href="{{ route('login') }}">
+        <a class="button" href="{{ route('register') }}">
             SIGN UP
         </a>
         <p>Already Registered</p>
