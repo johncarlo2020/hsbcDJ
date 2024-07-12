@@ -42,12 +42,13 @@ class RegisteredUserController extends Controller
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
             'age' => ['required'],
-            'number' => ['required', 'string', new InternationalPhoneNumber],
+            // 'number' => ['required', 'string', new InternationalPhoneNumber],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
         ]);
 
         // After validation, fetch country by phone number
-        $phoneNumber = $request->input('number');
+        $phoneNumber = $request->input('country');
+
       // Extract the phone prefix
 $phonePrefix = '+' . substr($phoneNumber, 1, 2); // This assumes the prefix is always 2 characters after the '+'
 
@@ -60,7 +61,7 @@ $country = Countries::where('phone_code', $phonePrefix)->first();
             'fname' => $request->fname,
             'lname' => $request->lname,
             'age_group' => $request->age,
-            'number' => $request->number,
+            'number' => $phoneNumber,
             'email' => $request->email,
             'country'=> $country->name,
             'last_login_at' => Carbon::now(),

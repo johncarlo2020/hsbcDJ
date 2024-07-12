@@ -43,9 +43,11 @@
             </div>
 
             <div class="">
-                <x-text-input id="number" class="block w-full mt-1" type="text" name="number" :value="old('number')"
-                    required placeholder="+60 12-3739 1590" />
+                <x-text-input id="number" class="block w-full mt-1" type="number" name="number" :value="old('number')"
+                    required placeholder="" />
                 <x-input-error :messages="$errors->get('number')" class="mt-2" />
+                <span id="valid-msg" class="d-none"></span>
+                <span id="error-msg" class="d-none"></span>
             </div>
 
             <div class="accordion" id="accordionExample">
@@ -71,7 +73,6 @@
                 </div>
             </div>
 
-
             <div class="checkbox-container concent-container">
                 <input type="checkbox" id="consent" name="consent" value="1" required>
                 <label for="consent">
@@ -84,7 +85,7 @@
 
 
             <div class="flex items-center justify-end mt-4">
-                <x-primary-button class="button">
+                <x-primary-button class="button" id="submitButton">
                     {{ __('SUBMIT') }}
                 </x-primary-button>
             </div>
@@ -99,7 +100,55 @@
 </x-guest-layout>
 
 <script>
+
  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector("#form");
+   const input = document.querySelector("#number");
+
+   const errorMsg = document.querySelector("#error-msg");
+    const validMsg = document.querySelector("#valid-msg");
+
+// here, the index maps to the error code returned from getValidationError - see readme
+    const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+    const submitButton = document.querySelector('#submitButton')
+    const iti = window.intlTelInput(input, {
+    initialCountry: "my",
+    hiddenInput: "country",
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js", // just for formatting/placeholders etc
+    });
+
+    const reset = () => {
+        input.classList.remove("error");
+        errorMsg.innerHTML = "";
+        errorMsg.classList.add("d-none");
+        validMsg.classList.add("d-none");
+        };
+
+    const showError = (msg) => {
+        input.classList.add("error");
+        errorMsg.innerHTML = msg;
+        errorMsg.classList.remove("d-none");
+        };
+
+        input.addEventListener('keyup', function() {
+        reset();
+        if (!input.value.trim()) {
+            showError("Required");
+            submitButton.disabled = true;
+        } else if (iti.isValidNumber()) {
+            validMsg.classList.remove("d-none");
+            submitButton.disabled = false;
+        } else {
+            const errorCode = iti.getValidationError();
+            const msg = errorMap[errorCode] || "Invalid number";
+            showError(msg);
+            submitButton.disabled = true;
+        }
+    });
+
+
+  
+   
     const checkboxes = document.querySelectorAll("input[type=checkbox][name='regimes[]'");
     const lastCheckboxContainer = document.querySelector('input[type=checkbox][name="regimes[]"][value="7"]').closest('.checkbox-container');
 
