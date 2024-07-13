@@ -34,7 +34,15 @@ class StationController extends Controller
             $station->status = $userHasStation;
         }
 
-        return view('dashboard',compact('stations','stationDone'));
+        if($stationDone < 6)
+        {
+            return view('dashboard',compact('stations','stationDone'));
+
+
+        }else{
+            return view('congrats');
+        }
+
     }
     
 

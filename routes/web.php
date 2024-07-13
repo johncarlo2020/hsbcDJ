@@ -18,7 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/congrats', function () {
+    return view('congrats');
+});
+
 Route::get('/station/{station}', 'App\Http\Controllers\StationController@index')->name('station.show');
+
 
 Route::get('/dashboard', 'App\Http\Controllers\StationController@welcome')->middleware(['auth', 'verified'])->name('dashboard');
 Route::post('/process_qr_code', 'App\Http\Controllers\StationController@scan')->name('process_qr_code');
