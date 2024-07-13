@@ -28,6 +28,17 @@
                 width: 100%;
                 margin: 53% auto 0;
             }
+            .logo-footer{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }
+            .main-logo{
+                width: 34%;
+                height: auto;
+            }
             .tag-line {
                     font-size: 16px;
                     line-height: 20px;
@@ -57,7 +68,10 @@
         <p class="tag-line  mt-5">CONGRATULATIONS <br> YOU HAVE COMPLETED <br> YOUR JOURNEY</p>
         <footer>
             <div class="visit">
-            <p class="  mt-5">Visit our official website</p>
+                <p class="  mt-5">Visit our official website</p>
+                <div class="logo-footer  mb-3" >
+                    <img class="main-logo " src="{{ asset('images/logo-large.png') }}" alt="">
+                </div>
             <a href="https://wardahbeauty.com/">CLick Here for more information</a>
             </div>
       
