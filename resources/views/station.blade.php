@@ -53,6 +53,8 @@
                 <div class="mt-3 p-3">
                     <p class="bottom-text px-4 text-center">Find the QR code & Scan to check in the station</p>
                 </div>
+
+                <div class="button" id="btn-back">Back</div>
             </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -61,6 +63,11 @@
         
         const mainContent = document.getElementById('mainContent');
         const scannerContainer = document.getElementById('scannerContainer');
+        document.getElementById('btn-back').addEventListener('click', function(event) {
+            event.preventDefault();
+            mainContent.classList.remove('d-none');
+            scannerContainer.classList.add('d-none');
+        });
 
       document.getElementById('scan-btn').addEventListener('click', function(event) {
             event.preventDefault();
