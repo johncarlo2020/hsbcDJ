@@ -27,7 +27,7 @@
                 background-image: url('{{ asset('/images/main-bg.png') }}');
             }
         </style>
-        <div class="login main-bg" >
+        <div class="login main-bg {{ Route::currentRouteName() == 'register' ? 'register-page' : '' }}">
             <div class="branding-container">
                 @include('components.branding')
             </div>

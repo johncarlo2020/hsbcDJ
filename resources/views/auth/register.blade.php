@@ -46,8 +46,10 @@
                 <x-text-input id="number" class="block w-full mt-1" type="number" name="number" :value="old('number')"
                     required placeholder="" />
                 <x-input-error :messages="$errors->get('number')" class="mt-2" />
-                <span id="valid-msg" class="d-none"></span>
-                <span id="error-msg" class="d-none"></span>
+            </div>
+            <div>
+                <span id="valid-msg" class="d-none text-danger"></span>
+                <span id="error-msg" class="d-none text-danger"></span>
             </div>
 
             <div class="accordion" id="accordionExample">
@@ -147,8 +149,8 @@
     });
 
 
-  
-   
+
+
     const checkboxes = document.querySelectorAll("input[type=checkbox][name='regimes[]'");
     const lastCheckboxContainer = document.querySelector('input[type=checkbox][name="regimes[]"][value="7"]').closest('.checkbox-container');
 
