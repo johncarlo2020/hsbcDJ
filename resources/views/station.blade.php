@@ -35,7 +35,7 @@
           <p class="tag-line">{{$station->description}}</p>
         </div>
         <div class="station-img">
-          <img src="{{ asset('images/station' . $station->id . 'main.png') }}" alt="">
+          <img src="{{ asset('images/station' . $station->id . 'main.jpg') }}" alt="">
 
         </div>
         @if( $user == false )
