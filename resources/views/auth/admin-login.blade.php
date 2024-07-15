@@ -26,21 +26,21 @@
             <p class="mb-4">Warda Admin Panel</p>
             <form>
                 <div class="mb-4">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <label for="exampleInputEmail1" class="form-label">Email</label>
                   <input placeholder="Enter your email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-4">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <input placeholder="Enter your password" type="password" class="form-control" id="exampleInputPassword1">
                 </div>
-                <div class="mb-4 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <div class="mb-4 form-check remember">
+                  <input type="checkbox" class="form-check-input" id="remember">
                   <label class="form-check-label" for="exampleCheck1">Rememebr me</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn button">Login</button>
               </form>
          </div>
-         <p>Wowsome © Copyright 2024️</p>
+         <p class="copy-text">Wowsome © Copyright 2024️</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

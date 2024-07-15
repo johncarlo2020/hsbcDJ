@@ -561,6 +561,7 @@ a:active {
         label {
             letter-spacing: 0;
             font-size: 16px;
+            color: #3C727A;
         }
 
         h1 {
@@ -580,14 +581,44 @@ a:active {
             font-weight: 400;
         }
 
+        .form-control {
+            border-radius: 6px !important;
+            min-height: 60px;
+        }
+        .remember {
+            label {
+                font-size: 12px;
+                margin-left: 5px;
+            }
+
+            input {
+                padding: 8px;
+                border-radius: 0;
+                border: 1px solid #9e9e9e;
+            }
+        }
+
         input {
-            padding: 10px;
+            padding:10px 20px;
             font-size: 14px;
             &::placeholder {
                 color: #ABABAB;
                 font-size: 14px;
             }
         }
+        .button {
+            width: 100%;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 30px;
+        }
+    }
+    .copy-text {
+        font-size: 14px;
+        color: #7D7D7D;
+        font-weight: 400;
+        margin-top: 20px;
     }
 
 }
