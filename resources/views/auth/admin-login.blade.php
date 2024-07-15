@@ -21,19 +21,19 @@
             @include('components.branding')
         </div>
          <div class="p-4 mx-auto bg-white border rounded shadow-sm form-container">
-            <h1 class="mb-2">Welcome!</h1>
+            <h1 class="mb-4">Welcome!</h1>
             <h2>Sign in to</h2>
-            <p>Warda Admin Panel</p>
+            <p class="mb-4">Warda Admin Panel</p>
             <form>
-                <div class="mb-3">
+                <div class="mb-4">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
                   <input placeholder="Enter your email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <input placeholder="Enter your password" type="password" class="form-control" id="exampleInputPassword1">
                 </div>
-                <div class="mb-3 form-check">
+                <div class="mb-4 form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Rememebr me</label>
                 </div>

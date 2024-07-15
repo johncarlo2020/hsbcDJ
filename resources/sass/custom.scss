@@ -476,7 +476,7 @@ a:active {
         margin-bottom: 10px;
 
         label {
-            width: 201px;
+            width: 96px;
         }
 
         a {
@@ -488,7 +488,7 @@ a:active {
             padding-top: 30px;
             margin-top: 30px;
             label {
-                width:100px;
+                width:50px;
             }
         }
     }
@@ -560,6 +560,7 @@ a:active {
         width: 505px;
         label {
             letter-spacing: 0;
+            font-size: 16px;
         }
 
         h1 {
@@ -577,6 +578,15 @@ a:active {
             font-size:16px;
             color:#3C727A;
             font-weight: 400;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 14px;
+            &::placeholder {
+                color: #ABABAB;
+                font-size: 14px;
+            }
         }
     }
 
