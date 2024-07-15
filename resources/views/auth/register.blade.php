@@ -81,7 +81,7 @@
                 </label>
                 <p> I acknowledge and consent to Paragoncorp and/or its agents or affiliates updating me on the latest
                     launches, promotional materials, offers, and gifts via WhatsApp and/or email. I understand that my
-                    personal data will be collected and processed in accordance with the event's privacy policy.</p>
+                    personal data will be collected and processed in accordance with the event's <a href="https://wardahbeauty.com/privacy-policy">privacy policy</a> .</p>
             </div>
 
 
