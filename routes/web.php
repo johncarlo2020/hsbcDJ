@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return view('auth.admin-login');
+});
+
 Route::get('/congrats', function () {
     return view('congrats');
 });

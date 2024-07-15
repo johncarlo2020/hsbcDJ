@@ -75,13 +75,18 @@
                 </div>
             </div>
 
+            <div class="checkbox-container concent-container first">
+                <input type="checkbox" id="consent" name="consent" value="1" required>
+                <label for="consent">
+                </label>
+                <p>I have read and agree to the Terms and Conditions and <a href="https://wardahbeauty.com/privacy-policy">privacy policy.</a></p>
+            </div>
+
             <div class="checkbox-container concent-container">
                 <input type="checkbox" id="consent" name="consent" value="1" required>
                 <label for="consent">
                 </label>
-                <p> I acknowledge and consent to Paragoncorp and/or its agents or affiliates updating me on the latest
-                    launches, promotional materials, offers, and gifts via WhatsApp and/or email. I understand that my
-                    personal data will be collected and processed in accordance with the event's <a href="https://wardahbeauty.com/privacy-policy">privacy policy</a> .</p>
+                <p>I agree to receive marketing and promotional communications from Wardah via e-mail and text messages (including SMS/WhatsApp).</p>
             </div>
 
 

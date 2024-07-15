@@ -473,13 +473,23 @@ a:active {
     .concent-container {
         justify-content: start;
         align-items: start;
-        padding-top: 30px;
-        border-top: dashed 1px #fff;
-        margin-top: 30px;
         margin-bottom: 10px;
 
         label {
             width: 201px;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+
+        &.first {
+            border-top: dashed 1px #fff;
+            padding-top: 30px;
+            margin-top: 30px;
+            label {
+                width:100px;
+            }
         }
     }
     .accordion-button {
@@ -533,3 +543,42 @@ a:active {
         margin: 0 auto;
     }
 }
+
+.admin-login {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #D3EEFD 100%);
+    .wrapper {
+        margin-top: 10%;
+        flex-direction: column;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+    }
+    .branding .logo {
+        width: 248px
+    }
+    .form-container {
+        width: 505px;
+        label {
+            letter-spacing: 0;
+        }
+
+        h1 {
+            font-size:25px;
+            color:#3C727A;
+            font-weight: 300;
+        }
+        h2 {
+            font-size:31px;
+            color:#3C727A;
+            font-weight: 500;
+        }
+
+        p {
+            font-size:16px;
+            color:#3C727A;
+            font-weight: 400;
+        }
+    }
+
+}
+
