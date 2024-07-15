@@ -175,7 +175,7 @@
         </div>
 
         <div class="row mt-4">
-            <div class="col-lg-9 mb-lg-0 mb-4">
+            <div class="col-lg-12 mb-lg-0 mb-4">
                 <div class="card ">
                     <div class="card-header pb-0 p-3">
                         <div class="d-flex justify-content-between">
@@ -227,20 +227,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="card-header pb-0 p-3">
-                        <h6 class="mb-0"></h6>
-                    </div>
-                    <div class="card-body p-3">
-                        <ul class="list-group">
-                        
-
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
+      
 
 
 
