@@ -24,9 +24,9 @@ Route::get('/congrats', function () {
 
 Route::get('/station/{station}', 'App\Http\Controllers\StationController@index')->name('station.show');
 Route::get('/admin', 'App\Http\Controllers\StationController@admin')->middleware(['auth', 'verified'])->name('admin');
-Route::get('/users', 'App\Http\Controllers\StationController@users')->name('users');
-Route::get('/{user}', 'App\Http\Controllers\StationController@userData')->name('userData');
-Route::post('/check', 'App\Http\Controllers\StationController@check')->name('check');
+Route::get('/admin/users', 'App\Http\Controllers\StationController@users')->name('users');
+Route::get('/admin/{user}', 'App\Http\Controllers\StationController@userData')->name('userData');
+Route::post('/admin/check', 'App\Http\Controllers\StationController@check')->name('check');
 
 
 Route::get('/dashboard', 'App\Http\Controllers\StationController@welcome')->middleware(['auth', 'verified'])->name('dashboard');
