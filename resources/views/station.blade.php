@@ -33,6 +33,10 @@
           <h1 class="station-number">0{{$station->id}}</h1>
           <h2 class="station-name">{{$station->name}}</h2>
           <p class="tag-line">{{$station->description}}</p>
+          @if($station->id == 5)
+          <p class="tag-line">
+            And experience revolutionary Personalised RoboSkin to get tailor-made skin solutions for your specific skin needs.</p>
+          @endif
         </div>
         <div class="station-img">
           <img src="{{ asset('images/station' . $station->id . 'main.jpg') }}" alt="">

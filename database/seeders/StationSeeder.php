@@ -43,7 +43,7 @@ class StationSeeder extends Seeder
         Regime::create([
             'name' => 'NONE',
         ]);
-        
+
         Station::create([
             'name' => 'SKINVENTURE',
             'description'=> 'Discover the underlying factors contributing to your skin concerns through interactive skin journey.'

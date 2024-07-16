@@ -28,7 +28,7 @@
 
     <div class="container">
         <h1>
-            Please rescan and access the QR from the digital journey. To start the journey <a href="{{ route('register') }}">Click here</a> !
+            Please rescan and access the QR from the digital journey. To start the journey <a href="{{ route('wardah') }}">Click here</a> !
         </h1>
 
     </div>

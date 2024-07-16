@@ -13,69 +13,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
 
 <body class="welcome main main-bg">
-<style>
-            .main-bg {
+    <style>
+         .main-bg {
                 background-image: url('{{ asset('/images/main-bg.png') }}');
             }
+        .main-logo {
+            width: 34%;
+            height: auto;
+        }
 
-            .congrats {
-                text-align: center;
-                width: 100%;
-                margin: 53% auto 0;
-            }
-            .logo-footer{
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                
-            }
-            .main-logo{
-                width: 34%;
-                height: auto;
-            }
-            .tag-line {
-                    font-size: 16px;
-                    line-height: 20px;
-                    font-weight: 400;
-                    color: #3c727a;
-                    letter-spacing: 1px;
-                }
-            .visit{
-                bottom:10%;
-                margin: 53% auto 0;
-                text-align: center;
-                font-size: 12px;
-                    line-height: 20px;
-                    font-weight: 400;
-                    color: #3c727a;
-                    letter-spacing: 1px;
-            }
-        </style>
-    <div class="branding-container">
-        
-    </div>
+        .tag-line {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #3c727a;
+            letter-spacing: 1px;
+        }
 
-    <div class="congrats" >
-        <div class="branding " >
-            <img class="logo " src="{{ asset('images/logo-large.png') }}" alt="">
+        .congrats {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .visit {
+            align-self: flex-end;
+        }
+    </style>
+    <div class="congrats">
+        <div class="branding">
+            <img class="logo" src="{{ asset('images/logo-large.png') }}" alt="">
         </div>
-        <p class="tag-line  mt-5">CONGRATULATIONS <br> YOU HAVE COMPLETED <br> YOUR JOURNEY</p>
-        <footer>
-            <div class="visit">
-                <p class="  mt-5">Visit our official website</p>
-                <div class="logo-footer  mb-3" >
-                    <img class="main-logo " src="{{ asset('images/logo-large.png') }}" alt="">
-                </div>
-            <a href="https://wardahbeauty.com/">CLick Here for more information</a>
+        <p class="mt-5 tag-line">CONGRATULATIONS <br> YOU HAVE COMPLETED <br> YOUR JOURNEY</p>
+        <div class="visit">
+            <p class="mt-5 mb-4">Visit our official website</p>
+            <div class="mb-3 logo-footer">
+                <img class="main-logo " src="{{ asset('images/logo-large.png') }}" alt="">
             </div>
-      
-        </footer>
+            <a href="https://wardahbeauty.com/">CLick Here for more information</a>
+        </div>
     </div>
 </body>
+
 </html>
