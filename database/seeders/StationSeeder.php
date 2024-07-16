@@ -5,7 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Station;
 use App\Models\Regime;
-
+use Spatie\Permission\Models\Role;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class StationSeeder extends Seeder
 {
@@ -77,5 +79,24 @@ interactive creative visual.'
             'name' => 'SKINVERSE LOUNGE',
             'description' => 'Claim your privilege refreshment after completing the journey at each station. Visit our Skinverse Lounge to redeem.'
         ]);
+
+        $role = Role::create(['name' => 'client']);
+
+        $role = Role::create(['name' => 'admin']);
+
+        $user = User::create([
+            'fname' => 'admin',
+            'lname' => 'admin',
+            'age_group' => 'admin',
+            'number' => '0123456789',
+            'email' => 'admin@gmail.com',
+            'country'=> 'Malaysia',
+            'password' => Hash::make('WowsomeWardah'),
+        ]);
+
+        $user->assignRole('admin');
+
+
+
     }
 }

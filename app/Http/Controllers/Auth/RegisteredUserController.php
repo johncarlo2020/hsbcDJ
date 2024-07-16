@@ -74,6 +74,8 @@ class RegisteredUserController extends Controller
             'password' => Hash::make('password'),
         ]);
 
+        $user->assignRole('client');
+
         $regimes = $request->regimes; // Assuming $request->regimes is an array of regime IDs
 
         $regimeUsers = [];

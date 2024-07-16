@@ -24,7 +24,7 @@ Route::get('/qr', function () {
     return view('error');
 });
 
-Route::get('/test', function () {
+Route::get('/admin/login', function () {
     return view('auth.admin-login');
 });
 
@@ -32,20 +32,22 @@ Route::get('/congrats', function () {
     return view('congrats');
 });
 
-Route::get('/station/{station}', 'App\Http\Controllers\StationController@index')->name('station.show');
-Route::get('/admin', 'App\Http\Controllers\StationController@admin')->middleware(['auth', 'verified'])->name('admin');
-Route::get('/admin/users', 'App\Http\Controllers\StationController@users')->name('users');
-Route::get('/admin/{user}', 'App\Http\Controllers\StationController@userData')->name('userData');
-Route::post('/admin/check', 'App\Http\Controllers\StationController@check')->name('check');
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('/admin', 'App\Http\Controllers\StationController@admin')->name('admin');
+    Route::get('/admin/users', 'App\Http\Controllers\StationController@users')->name('users');
+    Route::get('/admin/{user}', 'App\Http\Controllers\StationController@userData')->name('userData');
+    Route::post('/admin/check', 'App\Http\Controllers\StationController@check')->name('check');
+});
 
 
-Route::get('/dashboard', 'App\Http\Controllers\StationController@welcome')->middleware(['auth', 'verified'])->name('dashboard');
-Route::post('/process_qr_code', 'App\Http\Controllers\StationController@scan')->name('process_qr_code');
 
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => ['client']], function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/station/{station}', 'App\Http\Controllers\StationController@index')->name('station.show');
+    Route::get('/dashboard', 'App\Http\Controllers\StationController@welcome')->name('dashboard');
+    Route::post('/process_qr_code', 'App\Http\Controllers\StationController@scan')->name('process_qr_code');
 });
 
 require __DIR__.'/auth.php';

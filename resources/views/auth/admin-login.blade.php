@@ -24,18 +24,19 @@
             <h1 class="mb-4">Welcome!</h1>
             <h2>Sign in to</h2>
             <p class="mb-4">Warda Admin Panel</p>
-            <form>
+            <form method="POST" action="{{ route('authenticateAdmin') }}">
+                @csrf
                 <div class="mb-4">
                   <label for="exampleInputEmail1" class="form-label">Email</label>
-                  <input placeholder="Enter your email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input placeholder="Enter your email" type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-4">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input placeholder="Enter your password" type="password" class="form-control" id="exampleInputPassword1">
+                  <input placeholder="Enter your password" type="password" name="password" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="mb-4 form-check remember">
                   <input type="checkbox" class="form-check-input" id="remember">
-                  <label class="form-check-label" for="exampleCheck1">Rememebr me</label>
+                  <label class="form-check-label" for="exampleCheck1">Remember me</label>
                 </div>
                 <button type="submit" class="btn button">Login</button>
               </form>
