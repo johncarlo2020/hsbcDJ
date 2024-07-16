@@ -6,10 +6,10 @@
             cursor: pointer;
         }
     </style>
-    <div class="row mt-4">
-        <div class="col-lg-12 mb-lg-0 mb-4">
+    <div class="mt-4 row">
+        <div class="mb-4 col-lg-12 mb-lg-0">
             <div class="card">
-                <div class="card-header pb-0 p-3">
+                <div class="p-3 pb-0 card-header">
                     <div class="d-flex justify-content-between">
                         <h6 class="mb-2">Customer</h6>
                     </div>
@@ -22,7 +22,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Number</th>
-                                <th>Where</th>
+                                <th>Country</th>
 
 
                                 @foreach ($data['stations'] as $station)
@@ -37,7 +37,7 @@
                                     <td>{{ $user->fname }} {{ $user->lname }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->number }}</td>
-                                    <td>{{ $user->where }}</td>
+                                    <td>{{ $user->country }}</td>
 
                                     @foreach ($user['stations'] as $station)
                                         <td class="text-sm mb-0 {{ $station['value'] ? 'text-success' : 'text-danger' }}">
