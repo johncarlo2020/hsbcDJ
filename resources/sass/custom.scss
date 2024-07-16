@@ -65,8 +65,8 @@ div {
 }
 
 .button {
-    background-color: $primary;
-    color: $white;
+    background-color: $primary !important;
+    color: $white !important;
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -556,6 +556,10 @@ a:active {
     }
     .form-container {
         width: 505px;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
         label {
             letter-spacing: 0;
             font-size: 16px;
