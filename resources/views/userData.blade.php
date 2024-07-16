@@ -18,21 +18,21 @@
         }
     </style>
     <div class="row">
-        <div class="card shadow-lg mx-4 ">
-            <div class="card-body p-3">
+        <div class="mx-4 shadow-lg card ">
+            <div class="p-3 card-body">
                 <div class="row gx-4">
                     <div class="col-auto">
-                        <div class=" ">
+                        <div class="">
                             <i class="fa-solid fa-user" style="font-size: 3rem;"></i>
                         </div>
                     </div>
                     <div class="col-auto my-auto">
                         <div class="h-100">
                             <h5 class="mb-1">
-                                {{ $user[0]->fname }} {{ $user[0]->lname }}
+                                {{ $user->fname }} {{ $user->lname }}
                             </h5>
-                            <p class="mb-0 font-weight-bold text-sm">
-                                {{ $user[0]->email }}
+                            <p class="mb-0 text-sm font-weight-bold">
+                                {{ $user->email }}
                             </p>
                         </div>
                     </div>
@@ -40,40 +40,40 @@
 
             </div>
         </div>
-        <div class="container-fluid py-4">
+        <div class="py-4 container-fluid">
             <div class="row">
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-body">
-                            <p class="text-uppercase text-sm">User Information</p>
+                            <p class="text-sm text-uppercase">User Information</p>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">First Name</label>
-                                        <input class="form-control" type="text" value="{{ $user[0]->fname }}">
+                                        <input class="form-control" type="text" value="{{ $user->fname }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Last Name</label>
-                                        <input class="form-control" type="text" value="{{ $user[0]->lname }}">
+                                        <input class="form-control" type="text" value="{{ $user->lname }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Email Address</label>
-                                        <input class="form-control" type="email" value="{{ $user[0]->email }}">
+                                        <input class="form-control" type="email" value="{{ $user->email }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Phone Number</label>
-                                        <input class="form-control" type="text" value="{{ $user[0]->number }}">
+                                        <input class="form-control" type="text" value="{{ $user->number }}">
                                     </div>
                                 </div>
                             </div>
                             <hr class="horizontal dark">
-                            <p class="text-uppercase text-sm">Contact Information</p>
+                            <p class="text-sm text-uppercase">Contact Information</p>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -107,18 +107,18 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-header pb-0 p-3">
+                        <div class="p-3 pb-0 card-header">
                             <h6 class="mb-0">Stations</h6>
                         </div>
-                        <div class="card-body p-3">
+                        <div class="p-3 card-body">
                             <ul class="list-group">
-                                @foreach ($user[0]['stations'] as $station)
+                                @foreach ($user['stations'] as $station)
                                     <li
-                                        class="list-group-item stripe-li border-0 d-flex justify-content-between ps-0 mb-2 ">
+                                        class="mb-2 border-0 list-group-item stripe-li d-flex justify-content-between ps-0 ">
                                         <div class="d-flex align-items-center">
                                             <div class="d-flex flex-column">
-                                                <h6 class="mb-1 text-dark text-sm"></h6>
-                                                <h6 class="mb-1 text-dark text-sm">#{{ $station['id'] }}
+                                                <h6 class="mb-1 text-sm text-dark"></h6>
+                                                <h6 class="mb-1 text-sm text-dark">#{{ $station['id'] }}
                                                     {{ $station['name'] }}</h6>
                                                 <span class="text-xs">Average Time : <span
                                                         class="font-weight-bold">{{ $station['time_spent'] }}
@@ -133,11 +133,11 @@
                                     </li>
                                 @endforeach
                                 <li
-                                    class="list-group-item border-0  d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                    class="mb-2 border-0 list-group-item d-flex justify-content-between ps-0 border-radius-lg">
                                     <div class="d-flex align-items-center">
 
                                         <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark text-sm">Total Minutes</h6>
+                                            <h6 class="mb-1 text-sm text-dark">Total Minutes</h6>
                                             <span class="text-xs"> <span class="font-weight-bold">{{ $totalMinutes }}
                                                     minutes</span></span>
                                         </div>
@@ -156,7 +156,7 @@
     <script>
         $('.big-checkbox').change(function() {
             var newState = $(this).prop('checked');
-            var user_id = {{ $user[0]->id }}
+            var user_id = {{ $user->id }}
             var station_id = $(this).data('id');
             var csrfToken = $('meta[name="csrf-token"]').attr('content');
 

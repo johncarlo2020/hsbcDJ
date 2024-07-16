@@ -44,12 +44,12 @@ class StationController extends Controller
         }
 
     }
-    
+
 
     public function scan(Request $request)
     {
         // Parse the URL to get the query string
- 
+
 
         $qrCodeMessage = trim($request->qrCodeMessage);
 
@@ -254,24 +254,23 @@ class StationController extends Controller
 
     public function userData(User $user)
     {
-        $user = User::find($user);
 
-        $averagePlaytimeByUser = StationUser::where('user_id',$user[0]->id)
+        $averagePlaytimeByUser = StationUser::where('user_id',$user->id)
         ->avg('time_spent');
 
         $stations = Station::pluck('name', 'id');
 
-        $averageTimespentByStation = StationUser::where('user_id',$user[0]->id)->orderBy('id','asc')->get();
-        $total = StationUser::where('user_id',$user[0]->id)->orderBy('id','asc')->sum('time_spent');
+        $averageTimespentByStation = StationUser::where('user_id',$user->id)->orderBy('id','asc')->get();
+        $total = StationUser::where('user_id',$user->id)->orderBy('id','asc')->sum('time_spent');
         $totalMinutes = $total/60;
         $totalMinutes = number_format($totalMinutes, 2);
 
-        foreach ($user as $userdata) {
-            $userStations = $userdata->stationUser->pluck('station_id')->toArray();
+
+            $userStations = $user->stationUser->pluck('station_id')->toArray();
             $numStations = count($userStations);
 
-            $userdata->stations = $stations->map(function ($name, $id) use ($userStations,$user) {
-                $spent = StationUser::where('user_id',$user[0]->id)->where('station_id',$id)->first();
+            $user->stations = $stations->map(function ($name, $id) use ($userStations,$user) {
+                $spent = StationUser::where('user_id',$user->id)->where('station_id',$id)->first();
                 if(!$spent){
                     $minute = 0;
 
@@ -288,7 +287,6 @@ class StationController extends Controller
                     'id'    => $id
                 ];
             });
-        }
 
         return view('userData',compact('user','totalMinutes'));
     }
