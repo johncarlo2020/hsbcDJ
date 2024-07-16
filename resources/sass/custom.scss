@@ -15,6 +15,7 @@ body {
     padding: 0;
     margin: 0;
     height: 100%;
+    overflow: hidden;
 }
 
 div {
@@ -238,7 +239,7 @@ a:active {
     height: 100%;
     box-sizing: border-box;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 30px;
 
     .branding-container {
         box-sizing: border-box;
@@ -395,7 +396,7 @@ a:active {
     height: 100vh;
     padding-top: 40px;
     overflow-y: auto;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 
     .content {
         padding: 10px;
@@ -446,6 +447,7 @@ a:active {
         flex-direction: column;
         align-items: center;
         justify-content: end;
+        margin-top: 40px;
 
         .scan-btn {
             background-color: transparent;
