@@ -56,7 +56,7 @@
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="" target="_blank">
                 <img src="{{ asset('images/logo-large.png') }}" class="navbar-brand-img h-100" alt="main_logo">
-               
+
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -117,7 +117,7 @@
                                 document.write(new Date().getFullYear())
                             </script>,
                             made with <i class="fa fa-heart"></i> by
-                            <a href="https://wowsome.com.my/" class="font-weight-bold" target="_blank">Wowsome</a>
+                            <a href="https://wowsome.com.my/" class="font-weight-bold" target="_blank">Wowsome Malaysia</a>
                             for a better web.
                         </div>
                     </div>

@@ -131,11 +131,6 @@
                                                 minutes</span></span>
                                     </div>
                                 </div>
-                                <div class="d-flex">
-                                    <button
-                                        class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i
-                                            class="ni ni-bold-right" aria-hidden="true"></i></button>
-                                </div>
                             </li>
                         @endforeach
 
@@ -227,7 +222,7 @@
                 </div>
             </div>
 
-      
+
 
 
 
