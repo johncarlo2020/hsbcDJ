@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    <div class="station-page main main-bg">
+    <div id="stationPage" class="station-page main main-bg">
         <div class="mb-3 branding-container">
             @include('components.branding')
         </div>
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="button" id="btn-back">Back</div>
-            </div>
+    </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -145,6 +145,20 @@
 
                 }
             });
+        }
+        function isSafari() {
+            const userAgent = window.navigator.userAgent;
+            const isChrome = userAgent.indexOf('Chrome') > -1;
+            const isChromium = userAgent.indexOf('Chromium') > -1;
+            const isSafari = userAgent.indexOf('Safari') > -1;
+
+            return isSafari && !isChrome && !isChromium;
+        }
+
+        if(isSafari()){
+            const scannerContainer = document.getElementById('stationPage');
+            scannerContainer.classList.add('safari-padding');
+            console.log(isSafari());
         }
     </script>
   </x-app-layout>
