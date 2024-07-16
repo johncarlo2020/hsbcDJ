@@ -45,15 +45,20 @@ class RegisteredUserController extends Controller
             // 'number' => ['required', 'string', new InternationalPhoneNumber],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
         ]);
+        $marketing = false;
+
+        if($request->has('marketing')){
+            $marketing = true;
+        }
 
         // After validation, fetch country by phone number
         $phoneNumber = $request->input('country');
 
       // Extract the phone prefix
-$phonePrefix = '+' . substr($phoneNumber, 1, 2); // This assumes the prefix is always 2 characters after the '+'
+        $phonePrefix = '+' . substr($phoneNumber, 1, 2); // This assumes the prefix is always 2 characters after the '+'
 
-// Query the country based on the phone prefix
-$country = Countries::where('phone_code', $phonePrefix)->first();
+        // Query the country based on the phone prefix
+        $country = Countries::where('phone_code', $phonePrefix)->first();
 
         // dd($request);
 
@@ -64,6 +69,7 @@ $country = Countries::where('phone_code', $phonePrefix)->first();
             'number' => $phoneNumber,
             'email' => $request->email,
             'country'=> $country->name,
+            'marketing' => $marketing,
             'last_login_at' => Carbon::now(),
             'password' => Hash::make('password'),
         ]);
@@ -71,14 +77,14 @@ $country = Countries::where('phone_code', $phonePrefix)->first();
         $regimes = $request->regimes; // Assuming $request->regimes is an array of regime IDs
 
         $regimeUsers = [];
-        
+
         foreach ($regimes as $regimeId) {
             $regimeUsers[] = [
                 'user_id' => $user->id,
                 'regime_id' => $regimeId
             ];
         }
-        
+
         // Use the insert method to insert multiple records in one query
         RegimeUser::insert($regimeUsers);
         event(new Registered($user));

@@ -25,7 +25,7 @@ class User extends Authenticatable
         'last_login_at',
         'email',
         'country',
-
+        'marketing',
         'password',
     ];
 

@@ -76,15 +76,15 @@
             </div>
 
             <div class="checkbox-container concent-container first">
-                <input type="checkbox" id="consent2" name="consent2" value="1" required>
+                <input type="checkbox" id="consent2" name="consent" value="1" required>
                 <label for="consent2">
                 </label>
                 <p>I have read and agree to the Terms and Conditions and <a href="https://wardahbeauty.com/privacy-policy">privacy policy.</a></p>
             </div>
 
             <div class="checkbox-container concent-container">
-                <input type="checkbox" id="consent" name="consent" value="1" required>
-                <label for="consent">
+                <input type="checkbox" id="marketing" name="marketing" value="0"  >
+                <label for="marketing">
                 </label>
                 <p>I agree to receive marketing and promotional communications from Wardah via e-mail and text messages (including SMS/WhatsApp).</p>
             </div>
