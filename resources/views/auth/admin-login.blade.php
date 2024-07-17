@@ -24,7 +24,7 @@
             <h1 class="mb-4">Welcome!</h1>
             <h2>Sign in to</h2>
             <p class="mb-4">Warda Admin Panel</p>
-            <form method="POST" action="{{ route('authenticateAdmin') }}">
+            <form method="POST" id="loginForm" action="{{ route('authenticateAdmin') }}">
                 @csrf
                 <div class="mb-4">
                   <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -47,5 +47,47 @@
          <p class="copy-text">Wowsome © Copyright 2024</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const emailField = document.getElementById('exampleInputEmail1');
+        const passwordField = document.getElementById('exampleInputPassword1');
+        const rememberCheckbox = document.getElementById('remember');
+
+        if (getCookie('email') && getCookie('password')) {
+            emailField.value = getCookie('email');
+            passwordField.value = getCookie('password');
+            rememberCheckbox.checked = true;
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            if (rememberCheckbox.checked) {
+                setCookie('email', emailField.value, 30);
+                setCookie('password', passwordField.value, 30);
+            } else {
+                setCookie('email', '', 0);
+                setCookie('password', '', 0);
+            }
+        });
+
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+    });
+</script>
+
+  </body>
 </html>
