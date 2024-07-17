@@ -644,3 +644,22 @@ a:active {
     padding-bottom: 120px;
 }
 
+.admin-login {
+    .checkbox-container {
+        align-items: start;
+        label {
+            width: 20px;
+            height: 20px;
+            &::after {
+                left: 5px !important;
+                top: 0px !important;
+                width: 7px !important;
+                height: 13px !important;
+            }
+        }
+        p {
+            font-size: 12px;
+        }
+    }
+}
+
