@@ -117,8 +117,8 @@
                                 document.write(new Date().getFullYear())
                             </script>,
                             made with <i class="fa fa-heart"></i> by
-                            <a href="https://wowsome.com.my/" class="font-weight-bold" target="_blank">Wowsome Malaysia</a>
-                            for a better web.
+                            <a href="https://wowsome.com.my/" class="font-weight-bold" target="_blank">Wowsome</a> © Copyright 2024
+                           
                         </div>
                     </div>
                 </div>
