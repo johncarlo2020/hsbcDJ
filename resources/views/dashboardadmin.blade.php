@@ -293,6 +293,8 @@
                 });
             });
 
+            var permissionName = "{{ $permission}}";
+
             var chart = @json($data['usersDaily']);
             console.log(chart);
 
@@ -378,7 +380,10 @@
                             }
                         }
                     }]
-                }
+                },
+                exporting: {
+                enabled: permissionName !== 'view'
+            }
             });
 
             var high2 = Highcharts.chart('container2', {
@@ -439,7 +444,10 @@
                             }
                         }
                     }]
-                }
+                },
+                exporting: {
+                enabled: permissionName !== 'view'
+            }
             });
 
 

@@ -84,19 +84,21 @@
         //         ]
         //     });
         // });
-
-
+        var permissionName = "{{ $permission }}";
         var table = $('#customer-table').DataTable({
             responsive: true,
             dom: "<'row'<'col-sm-12 col-md-3'l><'col-sm-6 col-md-6 align-items-end'B><'col-sm-12 col-md-3'f>>" +
                 "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-            buttons: [
+            buttons: permissionName === 'view' ? [] : [
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ],
             order: [
                 [0, 'desc']
             ]
         });
+        if (permissionName !== 'view') {
+            table.buttons().container().appendTo('#customer-table_wrapper .col-md-6:eq(0)');
+        }
 
         // Move the search input to the left side
         $('.dataTables_filter').addClass('float-start');

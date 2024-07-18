@@ -106,6 +106,8 @@ class StationController extends Controller
 
     public function admin()
     {
+        $admin = User::find(auth()->id());
+        $permission = $admin->getPermissionNames()->first();
         $today = Carbon::today();
         $startDate = Carbon::create(2024, 7, 10);
         $data['users'] = User::with('stationUser')->take(4)->orderBy('id','desc')->get();
@@ -208,11 +210,13 @@ class StationController extends Controller
 
 
 
-        return view('dashboardadmin',compact('data'));
+        return view('dashboardadmin',compact('data','permission'));
     }
     public function users()
     {
         $today = Carbon::today();
+        $permission = auth()->user()->getPermissionNames()->first();
+
         $startDate = Carbon::create(2024, 5, 24);
         $data['users'] = User::whereDate('created_at', '>=', $startDate->toDateString())->with('stationUser')->orderBy('id','desc')->get();
 
@@ -248,7 +252,7 @@ class StationController extends Controller
 
 
 
-        return view('users',compact('data'));
+        return view('users',compact('data','permission'));
 
     }
 
