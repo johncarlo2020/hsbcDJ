@@ -89,7 +89,7 @@
             responsive: true,
             dom: "<'row'<'col-sm-12 col-md-3'l><'col-sm-6 col-md-6 align-items-end'B><'col-sm-12 col-md-3'f>>" +
                 "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-            buttons: permissionName === 'view' ? [] : [
+            buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ],
             order: [
