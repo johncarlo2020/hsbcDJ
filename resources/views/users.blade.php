@@ -96,9 +96,7 @@
                 [0, 'desc']
             ]
         });
-        if (permissionName !== 'view') {
-            table.buttons().container().appendTo('#customer-table_wrapper .col-md-6:eq(0)');
-        }
+     
 
         // Move the search input to the left side
         $('.dataTables_filter').addClass('float-start');

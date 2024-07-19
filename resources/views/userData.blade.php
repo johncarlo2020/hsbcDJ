@@ -154,7 +154,9 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $('.big-checkbox').change(function() {
+        var permissionName = "{{ $permission }}";
+        if(permissionName === 'full'){
+            $('.big-checkbox').change(function() {
             var newState = $(this).prop('checked');
             var user_id = {{ $user->id }}
             var station_id = $(this).data('id');
@@ -178,5 +180,7 @@
                 }
             });
         });
+        }
+       
     </script>
 @endsection

@@ -261,6 +261,7 @@ class StationController extends Controller
 
         $averagePlaytimeByUser = StationUser::where('user_id',$user->id)
         ->avg('time_spent');
+        $permission = auth()->user()->getPermissionNames()->first();
 
         $stations = Station::pluck('name', 'id');
 
@@ -292,7 +293,7 @@ class StationController extends Controller
                 ];
             });
 
-        return view('userData',compact('user','totalMinutes'));
+        return view('userData',compact('user','totalMinutes','permission'));
     }
 
     public function check(Request $request)
