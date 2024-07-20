@@ -76,19 +76,24 @@ class RegisteredUserController extends Controller
 
         $user->assignRole('client');
 
-        $regimes = $request->regimes; // Assuming $request->regimes is an array of regime IDs
+        if($request->has('regimes')){
+            $regimes = $request->regimes; // Assuming $request->regimes is an array of regime IDs
 
-        $regimeUsers = [];
+            $regimeUsers = [];
 
-        foreach ($regimes as $regimeId) {
-            $regimeUsers[] = [
-                'user_id' => $user->id,
-                'regime_id' => $regimeId
-            ];
+            foreach ($regimes as $regimeId) {
+                $regimeUsers[] = [
+                    'user_id' => $user->id,
+                    'regime_id' => $regimeId
+                ];
+            }
+        RegimeUser::insert($regimeUsers);
+
         }
 
+       
+
         // Use the insert method to insert multiple records in one query
-        RegimeUser::insert($regimeUsers);
         event(new Registered($user));
 
         Auth::login($user);
